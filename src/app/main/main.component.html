@@ -1,0 +1,68 @@
+
+<mat-toolbar color="primary" id="header">
+  <button mat-button (click)="sidenav.toggle()" id="header">
+    <mat-icon [inline]="true">menu</mat-icon>
+  </button>
+  <h1 class="header">News Headlines </h1>  
+  <!--<button mat-button class=header ><mat-icon [inline]="true">star</mat-icon></button>-->
+  <button mat-button class="header" [matMenuTriggerFor]="appMenu" ><mat-icon [inline]="true">settings</mat-icon></button>
+  <span class="example-spacer"></span>
+  <!--<button mat-button (click)="login.component.html">Login</button>-->
+  <button mat-button class="header" routerLink="/">Logout</button>
+</mat-toolbar>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item class="matmenu" [matMenuTriggerFor]="appMenu2"> Settings </button>
+  <button mat-menu-item class="matmenu" routerLink="/aboutus"> About Us </button>
+</mat-menu>
+<mat-menu #appMenu2="matMenu">
+  <button mat-menu-item class="matmenu" (click)="toggleClick()"> <mat-slide-toggle  color=primary> HeadLines only</mat-slide-toggle> </button>
+  <button mat-menu-item class="matmenu" ><mat-slide-toggle (change)="onChange($event)" color=primary> Dark mode </mat-slide-toggle></button>
+</mat-menu>
+
+<div class="container" 
+    fxLayout="column" 
+    fxLayoutGap="0px">
+  <div fxFlex>
+    <div>
+      <mat-sidenav-container class="example-container" id="div-dark" >
+
+      <mat-sidenav #sidenav class="example-sidenav" fixedInViewport=true id="menudark" >
+        <mat-list class="list-nav" >
+            <mat-list-item class="list-item li" *ngFor="let source of mSources" (click)="searchArticles(source.id);sidenav.close();">
+              <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}" class="example-header-image"></div>
+              <span class="source-name">{{source.name}}</span>
+            </mat-list-item>
+        </mat-list>
+      </mat-sidenav>
+      <mat-card class="example-card card-dark" *ngFor="let article of mArticles">
+        <mat-card-header>
+          <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}" class="example-header-image"></div>
+          <mat-card-title class="title">{{article.title}}</mat-card-title>
+          <mat-card-subtitle class="subtitle"><p>{{article.source.name}}</p></mat-card-subtitle>
+        </mat-card-header>
+        <div [hidden]="isShow">
+        <img mat-card-image class="img-article" src={{article.urlToImage}} alt="myImage">
+        <mat-card-content>
+          {{article.description}}
+        </mat-card-content>
+        <mat-card-actions class="action-buttons">
+          <!--
+<button mat-button class="btn" color="primary"><mat-icon>thumb_up_alt</mat-icon> 12 Likes</button>
+          <button mat-button class="btn" color="primary"><mat-icon>comment</mat-icon> Comments</button>
+          <button mat-button  class="btn" color="primary" [matMenuTriggerFor]="share"><mat-icon>share</mat-icon> Share</button>
+          <mat-menu #share="matMenu">
+          -->
+            <button mat-button class="btn"><i  class="fa fa-facebook"></i></button>
+            <button mat-button class="btn"><i class="fa fa-whatsapp"></i></button>
+            <button mat-button class="btn"><i class="fa fa-twitter"></i></button>
+
+          <!--</mat-menu>-->
+          <a mat-button color="primary" href={{article.url}} target="_blank" ><mat-icon>visibility</mat-icon> More</a>
+        </mat-card-actions>
+        </div>
+      </mat-card>
+    </mat-sidenav-container>
+  </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+

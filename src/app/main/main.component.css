@@ -1,0 +1,100 @@
+.example-spacer {
+    flex: 1 0 auto;
+  }
+  
+  .example-card{
+      margin-top: 4px;
+  }
+  
+  .example-header-image { 
+    background-size: cover;
+  }
+  
+  .title{
+      font-size: 3.5vh;
+  }
+  
+  .img-article{
+      display: block;
+      margin-right:auto;
+      margin-left:auto;
+      width: 90%;
+      height: 80%;    
+  }
+  
+  .action-buttons{
+      text-align: center;
+      font-size: 2vh;
+  }
+  
+  .example-container {
+      width: 100%;
+      height: auto;
+      border: 0px solid rgba(111, 111, 111, 0.50);
+  }
+  
+  .example-sidenav-content {
+      display: flex;
+      height: 75%;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .example-sidenav {
+      padding: 0px;
+  }
+  
+  .source-name {
+      margin-left:5px; 
+  }
+  
+  .list-item:hover{
+      cursor: pointer;
+      background-color: teal;
+      color: white;
+  }
+
+  .subtitle {
+      font-size: 2.5vh;
+  }
+
+  .mat-toolbar {
+      min-height: 10vh;
+      min-width: auto;
+      background-color: teal;
+  }
+  .mat-toolbar h1{
+      font-size: 3vh;
+      padding: 1px;
+  }
+
+  .mat-button {
+    font-size: x-large;
+    margin: 1px;
+    padding: 3px;
+}
+
+.btn {
+    text-align: center;
+}
+
+.header {
+    font-size: 3vh;
+    margin: 1px;
+}
+
+.fa-whatsapp {
+    color: rgb(120, 224, 0);
+    font-size: 32px;
+    line-height: 2px;
+}
+.fa-facebook {
+    color:rgb(0, 55, 138);
+    font-size: 32px;
+    line-height: 2px;
+}
+.fa-twitter {
+    color:rgb(0, 183, 255);
+    font-size: 32px;
+    line-height: 2px;
+}
